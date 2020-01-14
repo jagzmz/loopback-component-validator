@@ -1,7 +1,7 @@
 "use strict";
 var _ = require("lodash");
 module.exports = (Model, options) => {
-  let customValidation = ["StringValidation"]
+  let customValidation = ["StringValidation","NumberValidation"]
 
   _.forEach(customValidation, prop => {
     if (typeof this[prop] === "function") {
@@ -14,4 +14,8 @@ module.exports = (Model, options) => {
 
 this.StringValidation = (Model, options) => {
   require("./lib/stringValidation")(Model, options);
+};
+
+this.NumberValidation = (Model, options) => {
+  require("./lib/numberValidation")(Model, options);
 };
