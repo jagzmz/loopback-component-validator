@@ -1,0 +1,25 @@
+{
+  "name": "loopback-component-validator",
+  "version": "0.1.0",
+  "description": "Custom loopback validations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "loopback-modules",
+    "nodejs-modules",
+    "loopback3"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jagzmz/loopback-component-validator"
+  },
+  "author": "Mahesh Jaganiya",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "lodash": "^4.17.15"
+  }
+}
