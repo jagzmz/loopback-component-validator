@@ -1,6 +1,6 @@
 {
   "name": "loopback-component-validator",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Custom loopback validations",
   "main": "index.js",
   "scripts": {
