@@ -1,2 +1,3 @@
 Installation 
->npm install git+https://github.com/jagzmz/loopback-component-validator
+>npm i loopback-component-validator
+>npm i git+https://github.com/jagzmz/loopback-component-validator
