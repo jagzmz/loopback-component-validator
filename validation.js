@@ -18,12 +18,16 @@ module.exports = app => {
 };
 
 this.StringValidation = app => {
-  var stringValidator = require("./lib/stringValidation");
-  customValidators.push(stringValidator.setup(app));
+  var stringValidator = require("./lib/stringValidation").setup(app);
+  var deb=debug.extend("stringModels")
+  deb(stringValidator)
+  customValidators.push(stringValidator);
 };
 this.NumberValidation = app => {
-  var numberValidator = require("./lib/numberValidation");
-  customValidators.push(numberValidator.setup(app));
+  var numberValidator = require("./lib/numberValidation").setup(app);
+  var deb=debug.extend("numberModels")
+  deb(numberValidator)
+  customValidators.push(numberValidator);
 };
 
 function attachBeforeSave(app) {
