@@ -6,17 +6,20 @@ var customValidators = [];
 
 module.exports = (app, options) => {
   let customValidation = ["StringValidation", "NumberValidation"];
-  if (options.disableAll) {
+  
+  if (options.disableAll==true) {
     return;
   }
+
   _.forEach(customValidation, prop => {
     if (typeof this[prop] === "function") {
-      console.log(options, prop, options[prop] == false);
       if (options[prop] != false) this[prop](app);
     } else {
       throw new Error(`Function defination for '${prop}' not given`);
     }
   });
+  debug(options);
+
   attachBeforeSave(app);
 };
 
@@ -34,10 +37,12 @@ this.NumberValidation = app => {
 };
 
 function attachBeforeSave(app) {
-  _.keys(app.models).forEach(Model => {
-    app.models[Model].observe("before save", async ctx => {
+  _.keys(app.models).forEach(model => {
+    app.models[model].observe("before save", async ctx => {
       for (let validator of customValidators) {
-        validator[Model].validate(ctx);
+        let Model=app.models[model]
+        if(typeof validator[model].validate==='function')
+          validator[model].validate(ctx,Model);
       }
     });
   });
